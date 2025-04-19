@@ -54,6 +54,58 @@ void ass_Lc(node* p,node* q){
     }
 }
 
+void ass_Rc(node* p,node* q){
+    p->right=q;
+    if(q!=NULL){
+        q->up=p;
+    }
+}
+
+void ass_parent(node* p,node* q){
+    p->up=q;
+}
+
+void displaytree(node* root,int level){
+    if(root==NULL){
+        return;
+    }
+    display(RC(root),level+1);
+    for(int i=0;i<level;i++){
+        printf("    ");
+        printf("%d\n",nodevalue(root));
+    }
+    displaytree(LC(root),level+1);
+}
+
+
+
+
+node* buildtree(){
+    int val,hasleft,hasright;
+
+    printf("Enter node value : ");
+    scanf("%d",&val);
+
+    node* node =AllocateNode(val);
+    printf("Does node %d have a left child ? (1 for yes,0 for no ): ",val);
+    scanf("%d",&hasleft);
+    if(hasleft){
+        node* leftchild =buildtree();
+    }
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
 
 
 
